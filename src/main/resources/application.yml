@@ -1,0 +1,41 @@
+server:
+  port: 8090
+  servlet:
+     contextPath: /app
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+      
+  datasource:
+    url:  jdbc:postgresql://localhost:5450/test_
+    username: postgres
+    password: 123456789
+    timeBetweenEvictionRunsMillis: 1000
+    testWhileIdle: true
+    validationQuery: SELECT 1
+    hikari:
+      maximum-pool-size: 1
+      
+  main:
+    allow-circular-references: true
+    
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  properties:
+      
+        
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+  sql:
+    init:
+      platform: postgresql
+      #driverClassName: org.mariadb.jdbc.Driver
+      #url: ${msit_CONNECTION_DB}
+      #username: ${msit_USERNAME_DB}
+      #password: ${msit_PASSWORD_DB}
